@@ -1,0 +1,111 @@
+<!-- Carousel Start -->
+<div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+
+            <img
+                class="w-100"
+                src="{{ asset('assets/img/1.jpg') }}"
+                alt="Grand Garage Hyundai"
+            >
+
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+
+                <div class="p-3" style="max-width: 900px;">
+
+                    <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                        Grand Garage Hyundai
+                    </h5>
+
+                    <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                        Entretien et réparation automobile
+                    </h1>
+
+                    <a
+                        href="{{ path('services') }}"
+                        class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                    >
+                        Nos services
+                    </a>
+
+                    <a
+                        href="{{ path('contact') }}"
+                        class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
+                    >
+                        Contactez-nous
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+
+            <img
+                class="w-100"
+                src="{{ asset('assets/img/2.jpg') }}"
+                alt="Services Grand Garage Hyundai"
+            >
+
+            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+
+                <div class="p-3" style="max-width: 900px;">
+
+                    <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                        Grand Garage Hyundai
+                    </h5>
+
+                    <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                        Votre véhicule entre de bonnes mains
+                    </h1>
+
+                    <a
+                        href="{{ path('about') }}"
+                        class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                    >
+                        À propos de nous
+                    </a>
+
+                    <a
+                        href="{{ path('contact') }}"
+                        class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
+                    >
+                        Prendre contact
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Previous -->
+    <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="prev"
+    >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+    </button>
+
+    <!-- Next -->
+    <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="next"
+    >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+    </button>
+
+</div>
+<!-- Carousel End -->

@@ -1,0 +1,23 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: cloudmerge_database
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: main
+    ports:
+      - "3306:3306"
+    volumes:
+      - database_data:/var/lib/mysql
+
+  mailer:
+    image: schickling/mailcatcher
+    container_name: cloudmerge_mailer
+    restart: unless-stopped
+    ports:
+      - "1025:1025"
+      - "1080:1080"
+
+volumes:
+  database_data:

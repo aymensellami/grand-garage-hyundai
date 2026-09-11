@@ -1,0 +1,40 @@
+{# templates/admin/send_newsletter.html.twig #}
+
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content_title %}
+    {{ parent() }}
+    <h1 class="title">Envoyer la newsletter</h1>
+{% endblock %}
+
+{% block main %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                {% if app.flashes('success') is not empty %}
+                    <div class="alert alert-success">
+                        {{ app.flashes('success')[0] }}
+                    </div>
+                {% endif %}
+
+                {% if app.flashes('info') is not empty %}
+                    <div class="alert alert-info">
+                        {{ app.flashes('info')[0] }}
+                    </div>
+                {% endif %}
+                
+                {% if app.flashes('error') is not empty %}
+                    <div class="alert alert-danger">
+                        {{ app.flashes('error')[0] }}
+                    </div>
+                {% endif %}
+
+                <p>Voulez-vous vraiment envoyer la newsletter à tous les utilisateurs?</p>
+                <form method="post" action="{{ path('send_newsletter') }}">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <a href="{{ path('admin') }}" class="btn btn-secondary">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

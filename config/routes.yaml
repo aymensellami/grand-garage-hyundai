@@ -1,0 +1,7 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+send_newsletter:
+    path: /admin/send-newsletter
+    controller: 'App\Controller\Admin\DashboardController::sendNewsletter'
+    methods: ['GET']

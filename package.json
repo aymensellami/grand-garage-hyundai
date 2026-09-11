@@ -1,0 +1,25 @@
+{
+  "name": "cloud-merge-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^7.2.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@symfony/stimulus-bridge": "^4.0.1",
+    "@symfony/ux-turbo": "^2.36.2",
+    "bootstrap": "^5.3.8"
+  }
+}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+
+    <title>Connexion - Grand Garage Hyundai</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+          href="{{ asset('assets/img/favicon.ico') }}"
+          type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet"
+          href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ asset('assets/css/style.css') }}">
+
+    <style>
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .login-section {
+            min-height: 100vh;
+        }
+
+        .login-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .login-form-container {
+            min-height: 100vh;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .login-logo {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .form-control {
+            height: 50px;
+        }
+
+        .btn-login {
+            height: 50px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 767.98px) {
+
+            .login-form-container {
+                min-height: 100vh;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<section class="login-section">
+
+    <div class="container-fluid">
+
+        <div class="row min-vh-100">
+
+            <!-- ========================= -->
+            <!-- FORMULAIRE DE CONNEXION -->
+            <!-- ========================= -->
+
+            <div class="col-lg-6 col-md-12">
+
+                <div class="login-form-container
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                            px-4
+                            py-5">
+
+                    <div class="login-card">
+
+                        <!-- Logo / Nom -->
+                        <div class="text-center mb-4">
+
+                            <a href="{{ path('home') }}"
+                               class="text-decoration-none">
+
+                                <div class="login-logo text-primary">
+
+                                    <i class="fas fa-car me-2"></i>
+
+                                    Grand Garage Hyundai
+
+                                </div>
+
+                            </a>
+
+                            <p class="text-muted mt-2">
+                                Espace de connexion
+                            </p>
+
+                        </div>
+
+
+                        <!-- Erreur de connexion -->
+
+                        {% if error %}
+
+                            <div class="alert alert-danger">
+
+                                <i class="fas fa-exclamation-circle me-2"></i>
+
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Utilisateur connecté -->
+
+                        {% if app.user %}
+
+                            <div class="alert alert-info">
+
+                                Vous êtes connecté en tant que
+
+                                <strong>
+                                    {{ app.user.userIdentifier }}
+                                </strong>
+
+                                <a href="{{ path('app_logout') }}"
+                                   class="alert-link ms-2">
+
+                                    Déconnexion
+
+                                </a>
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <!-- Formulaire -->
+
+                        <form method="post">
+
+                            <!-- Email -->
+
+                            <div class="mb-4">
+
+                                <label for="inputEmail"
+                                       class="form-label fw-semibold">
+
+                                    Adresse email
+
+                                </label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fas fa-envelope"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="email"
+                                        value="{{ last_username }}"
+                                        name="email"
+                                        id="inputEmail"
+                                        class="form-control"
+                                        autocomplete="email"
+                                        placeholder="Votre adresse email"
+                                        required
+                                        autofocus
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Mot de passe -->
+
+                            <div class="mb-4">
+
+                                <label for="inputPassword"
+                                       class="form-label fw-semibold">
+
+                                    Mot de passe
+
+                                </label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fas fa-lock"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="inputPassword"
+                                        class="form-control"
+                                        autocomplete="current-password"
+                                        placeholder="Votre mot de passe"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- CSRF -->
+
+                            <input
+                                type="hidden"
+                                name="_csrf_token"
+                                value="{{ csrf_token('authenticate') }}"
+                            >
+
+
+                            <!-- Bouton -->
+
+                            <button
+                                class="btn btn-primary btn-login w-100"
+                                type="submit">
+
+                                <i class="fas fa-sign-in-alt me-2"></i>
+
+                                Se connecter
+
+                            </button>
+
+                        </form>
+
+
+                        <!-- Retour accueil -->
+
+                        <div class="text-center mt-4">
+
+                            <a href="{{ path('home') }}"
+                               class="text-decoration-none">
+
+                                <i class="fas fa-arrow-left me-2"></i>
+
+                                Retour à l'accueil
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- IMAGE -->
+            <!-- ========================= -->
+
+            <div class="col-lg-6 d-none d-lg-block px-0">
+
+                <img
+                    src="{{ asset('assets/img/2.jpg') }}"
+                    alt="Grand Garage Hyundai"
+                    class="login-image"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+
+</html>

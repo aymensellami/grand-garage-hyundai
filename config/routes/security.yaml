@@ -1,0 +1,10 @@
+_security_logout:
+    resource: security.route_loader.logout
+    type: service
+    
+    # config/routes.yaml
+dashboard:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
+
+# ...

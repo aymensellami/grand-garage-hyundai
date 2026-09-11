@@ -1,0 +1,303 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos - Grand Garage Hyundai{% endblock %}
+
+{% block body %}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-primary py-5 bg-header"
+     style="margin-bottom: 90px;">
+
+    <div class="row py-5">
+
+        <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+
+            <h1 class="display-4 text-white animated zoomIn">
+                À propos de nous
+            </h1>
+
+            <a href="{{ path('home') }}"
+               class="h5 text-white">
+                Accueil
+            </a>
+
+            <i class="far fa-circle text-white px-2"></i>
+
+            <span class="h5 text-white">
+                À propos
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Page Header End -->
+
+
+<!-- About Start -->
+<div class="container-fluid py-5 wow fadeInUp"
+     data-wow-delay="0.1s">
+
+    <div class="container py-5">
+
+        <div class="row g-5 align-items-center">
+
+            <!-- Texte -->
+            <div class="col-lg-7">
+
+                <div class="section-title position-relative pb-3 mb-5">
+
+                    <h5 class="fw-bold text-primary text-uppercase">
+                        Grand Garage Hyundai
+                    </h5>
+
+                    <h1 class="mb-0">
+                        Votre partenaire automobile de confiance
+                    </h1>
+
+                </div>
+
+
+                {% if entreprises is defined and entreprises|length > 0 %}
+
+                    {% for entreprise in entreprises %}
+
+                        <h3 class="mb-3">
+                            {{ entreprise.nom }}
+                        </h3>
+
+                        <p class="mb-4">
+                            {{ entreprise.introduction }}
+                        </p>
+
+
+                        <!-- Statistiques -->
+                        <div class="row g-4 mb-4">
+
+                            <!-- Équipe -->
+                            <div class="col-sm-6 wow zoomIn"
+                                 data-wow-delay="0.2s">
+
+                                <div class="bg-light rounded p-4 h-100">
+
+                                    <div class="d-flex align-items-center mb-2">
+
+                                        <div class="bg-primary rounded d-flex align-items-center justify-content-center"
+                                             style="width: 45px; height: 45px;">
+
+                                            <i class="fa fa-users text-white"></i>
+
+                                        </div>
+
+                                        <h5 class="mb-0 ms-3">
+                                            Notre équipe
+                                        </h5>
+
+                                    </div>
+
+                                    <p class="mb-0">
+                                        {{ entreprise.nbrConsultant }}
+                                        professionnels
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Expérience / activité -->
+                            <div class="col-sm-6 wow zoomIn"
+                                 data-wow-delay="0.4s">
+
+                                <div class="bg-light rounded p-4 h-100">
+
+                                    <div class="d-flex align-items-center mb-2">
+
+                                        <div class="bg-primary rounded d-flex align-items-center justify-content-center"
+                                             style="width: 45px; height: 45px;">
+
+                                            <i class="fa fa-car text-white"></i>
+
+                                        </div>
+
+                                        <h5 class="mb-0 ms-3">
+                                            Notre engagement
+                                        </h5>
+
+                                    </div>
+
+                                    <p class="mb-0">
+                                        Un service automobile professionnel
+                                        et fiable.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <!-- Contenu par défaut -->
+                    <p class="mb-4">
+                        Grand Garage Hyundai vous accompagne pour
+                        l'entretien, le diagnostic, la réparation et
+                        la maintenance de votre véhicule.
+                    </p>
+
+                    <p class="mb-4">
+                        Notre objectif est de proposer un service
+                        professionnel, transparent et adapté aux
+                        besoins de chaque client.
+                    </p>
+
+                {% endif %}
+
+
+                <!-- Bouton -->
+                <a href="{{ path('services') }}"
+                   class="btn btn-primary py-3 px-5 mt-3">
+
+                    Découvrir nos services
+
+                </a>
+
+            </div>
+
+
+            <!-- Image -->
+            <div class="col-lg-5">
+
+                <div class="position-relative">
+
+                    <img class="img-fluid rounded wow zoomIn"
+                         data-wow-delay="0.5s"
+                         src="{{ asset('assets/img/about.jpg') }}"
+                         alt="Grand Garage Hyundai">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- About End -->
+
+
+<!-- Why Choose Us Start -->
+<div class="container-fluid py-5 bg-light">
+
+    <div class="container py-5">
+
+        <div class="section-title text-center position-relative pb-3 mb-5">
+
+            <h5 class="fw-bold text-primary text-uppercase">
+                Pourquoi nous choisir ?
+            </h5>
+
+            <h1 class="mb-0">
+                Un service pensé pour votre véhicule
+            </h1>
+
+        </div>
+
+
+        <div class="row g-5">
+
+            <!-- Expertise -->
+            <div class="col-lg-4 col-md-6 wow zoomIn"
+                 data-wow-delay="0.2s">
+
+                <div class="bg-white rounded p-5 h-100 text-center">
+
+                    <div class="bg-primary rounded d-inline-flex align-items-center justify-content-center mb-4"
+                         style="width: 60px; height: 60px;">
+
+                        <i class="fa fa-tools text-white fa-2x"></i>
+
+                    </div>
+
+                    <h4 class="mb-3">
+                        Expertise
+                    </h4>
+
+                    <p class="mb-0">
+                        Une équipe qualifiée pour assurer
+                        l'entretien et la réparation de votre
+                        véhicule.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Qualité -->
+            <div class="col-lg-4 col-md-6 wow zoomIn"
+                 data-wow-delay="0.4s">
+
+                <div class="bg-white rounded p-5 h-100 text-center">
+
+                    <div class="bg-primary rounded d-inline-flex align-items-center justify-content-center mb-4"
+                         style="width: 60px; height: 60px;">
+
+                        <i class="fa fa-check text-white fa-2x"></i>
+
+                    </div>
+
+                    <h4 class="mb-3">
+                        Qualité
+                    </h4>
+
+                    <p class="mb-0">
+                        Des prestations réalisées avec sérieux,
+                        précision et attention aux détails.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Satisfaction -->
+            <div class="col-lg-4 col-md-6 wow zoomIn"
+                 data-wow-delay="0.6s">
+
+                <div class="bg-white rounded p-5 h-100 text-center">
+
+                    <div class="bg-primary rounded d-inline-flex align-items-center justify-content-center mb-4"
+                         style="width: 60px; height: 60px;">
+
+                        <i class="fa fa-smile text-white fa-2x"></i>
+
+                    </div>
+
+                    <h4 class="mb-3">
+                        Satisfaction client
+                    </h4>
+
+                    <p class="mb-0">
+                        Nous plaçons la satisfaction et la confiance
+                        de nos clients au centre de notre travail.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Why Choose Us End -->
+
+{% endblock %}

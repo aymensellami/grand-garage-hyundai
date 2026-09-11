@@ -1,0 +1,39 @@
+<!-- Recent Post Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <!-- Section Title for blog -->
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Blog</h5>
+                <h1 class="mb-0">Recent Post</h1>
+            </div>
+
+            <style>
+            .card {
+             background-color: #f2f2f2; /* Set the background color to gray */
+             }
+                .card:hover {
+                    transform: scale(1.05); /* Increase the size on hover */
+                    transition: transform 0.3s ease; /* Add a smooth transition effect */
+                }
+            </style>
+            <div class="wow slideInUp" data-wow-delay="0.1s">
+                <div class="row">
+                    {% for blogpost in blogposts %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ blogpost.titre }}</h3>
+                                    <p class="card-text">{{ blogpost.contenu |u.truncate (150,'...')}}</p>
+
+                                    <p class="text-muted">{{ blogpost.date|date('Y-m-d') }}</p>
+                                    <a href="{{ path('blog_detail', {'id': blogpost.id}) }}" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Recent Post End -->

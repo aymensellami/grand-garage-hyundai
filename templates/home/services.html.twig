@@ -1,0 +1,31 @@
+<!-- Services Section -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <!-- Section Title for Services -->
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase"> Services</h5>
+                <h1 class="mb-0">                Des solutions professionnelles pour votre véhicule
+</h1>
+            </div>
+            <div class="row">
+                {% for domaineExpertise in domaineExpertises %}
+                    {% if loop.index % 3 == 1 %}
+                        </div><div class="row">
+                    {% endif %}
+                    <div class="col-md-4 wow fadeIn" data-wow-delay=".3s">
+                        <div class="services-item bg-light">
+                            <div class="p-4 text-center services-content">
+                                <div class="services-content-icon">
+                                    <a class="card-img-top" href="">
+                                        <img src="{{ asset('images/team/' ~ domaineExpertise.file) }}" alt="..." class="card-img-top img-medium">
+                                    </a>
+                                    <h4 class="mb-3">{{ domaineExpertise.nom }}</h4>
+                                    <p class="mb-4">{{ domaineExpertise.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
