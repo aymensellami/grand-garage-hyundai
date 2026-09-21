@@ -23,7 +23,7 @@ class DomaineExpertiseCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle("index", "cloudmrege- Administration Domaine Expertise") // Sets the page title for the 'index' action.
+            ->setPageTitle("index", "Administration Domaine Expertise") // Sets the page title for the 'index' action.
             ->setPaginatorPageSize(20) ;// Sets the number of items per page in the list view.
     }
     

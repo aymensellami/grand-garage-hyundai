@@ -22,7 +22,7 @@ class ConsultantCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle("index", "cloudmrege- Administration consultant") // Sets the page title for the 'index' action.
+            ->setPageTitle("index", "Administration consultant") // Sets the page title for the 'index' action.
             ->setPaginatorPageSize(20) ;// Sets the number of items per page in the list view.
     }
     

@@ -25,7 +25,7 @@ class ContactCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('Demande de contact')
             ->setEntityLabelInPlural('Demandes de contact')
 
-            ->setPageTitle("index", "cloudmerge- Administration de contact")
+            ->setPageTitle("index", " Administration de contact")
 
             ->setPaginatorPageSize(10)
 

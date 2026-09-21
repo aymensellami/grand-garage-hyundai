@@ -24,7 +24,7 @@ class EntrepriseCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
 {
     return $crud
-        ->setPageTitle("index", "cloudmrege- Administration de Entreprise") // Sets the page title for the 'index' action.
+        ->setPageTitle("index", " Administration de Entreprise") // Sets the page title for the 'index' action.
         ->setPaginatorPageSize(20) // Sets the number of items per page in the list view.
         ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig'); // Adds a form theme for CKEditor to be used in form rendering.
 }

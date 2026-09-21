@@ -10,10 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-
 #[ORM\Entity(repositoryClass: ConsultantRepository::class)]
 #[Vich\Uploadable]
-
 class Consultant
 {
     #[ORM\Id]
@@ -32,13 +30,31 @@ class Consultant
 
     #[ORM\Column(length: 255)]
     private ?string $file = null;
+
     #[Vich\UploadableField(mapping: 'team', fileNameProperty: 'file')]
     private ?File $imageFile = null;
 
     #[ORM\Column(length: 255)]
     private ?string $domaine = null;
 
-    
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    /**
+     * @var Collection<int, DomaineExpertise>
+     */
+    #[ORM\OneToMany(
+        mappedBy: 'consultant',
+        targetEntity: DomaineExpertise::class,
+        orphanRemoval: false
+    )]
+    private Collection $domainExpertises;
+
+    public function __construct()
+    {
+        $this->domainExpertises = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,16 +107,16 @@ class Consultant
 
         return $this;
     }
-    public function setImageFile(?File $file= null): void
+
+    public function setImageFile(?File $file = null): void
     {
         $this->imageFile = $file;
 
         if (null !== $file) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
     }
+
     public function getImageFile(): ?File
     {
         return $this->imageFile;
@@ -118,5 +134,37 @@ class Consultant
         return $this;
     }
 
-    
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @return Collection<int, DomaineExpertise>
+     */
+    public function getDomainExpertises(): Collection
+    {
+        return $this->domainExpertises;
+    }
+
+    public function addDomainExpertise(DomaineExpertise $domainExpertise): static
+    {
+        if (!$this->domainExpertises->contains($domainExpertise)) {
+            $this->domainExpertises->add($domainExpertise);
+            $domainExpertise->setConsultant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDomainExpertise(DomaineExpertise $domainExpertise): static
+    {
+        if ($this->domainExpertises->removeElement($domainExpertise)) {
+            if ($domainExpertise->getConsultant() === $this) {
+                $domainExpertise->setConsultant(null);
+            }
+        }
+
+        return $this;
+    }
 }
